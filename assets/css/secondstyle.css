@@ -1,0 +1,11 @@
+
+.img-upload input
+{
+    display: none;
+}
+
+.img-upload img
+{
+    width: 30px;
+    cursor: pointer;
+}
