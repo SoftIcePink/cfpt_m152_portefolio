@@ -1,21 +1,17 @@
-<?php // Header to be added ?>
+<?php
 
-<!DOCTYPE html>
-<html lang="en">
+//  Projet      :   Portefolio - M152
+//  Author      :   SoftIcePink
+//  Git         :   https://github.com/SoftIcePink/cfpt_m152_portefolio
+//  File        :   index.php
+//  Description :   View file of Index.php
+//  Last update :   19.02.2019
 
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<title>Facebook Theme Demo</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href="assets/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/secondstyle.css" rel="stylesheet">
 
-	<!--[if lt IE 9]>
-          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-	<link href="assets/css/facebook.css" rel="stylesheet">
-</head>
+include "header.php";
+?>
+
+
 
 <body>
 
@@ -92,7 +88,7 @@
 										<div class="panel-thumbnail"><img src="assets/img/bg_5.jpg"
 												class="img-responsive"></div>
 										<div class="panel-body">
-											<p class="lead">Utilisateur</p>
+											<p class="lead">Hi there !</p>
 											<p>45 Followers, 13 Posts</p>
 
 											<p>
@@ -124,8 +120,11 @@
 
 							<div class="row">
 								<div class="col-sm-6">
-									<a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a>
-									<small class="text-muted">|</small> <a href="#">Google+</a>
+									<small class="text-muted">|</small> 
+									<a href="https://github.com/SoftIcePink/cfpt_m152_portefolio">
+										GitHub
+									<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" style="width:20px;"/>
+								</a>
 								</div>
 							</div>
 
@@ -155,12 +154,15 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#10005;</button>
 					Update Status
 				</div>
 				<div class="modal-body">
-					<form class="form center-block">
-						<div class="form-group">
+					
+				<img class="col-sm-2" src="https://edu.ge.ch/site/cfpt/wp-content/uploads/sites/112/2016/02/logo-cfpt-site.png"/>
+					<form class="col-sm-10 form center-block">
+						<div class="form-group ">
 							<textarea class="form-control input-lg" autofocus=""
 								placeholder="What do you want to share?"></textarea>
 						</div>
