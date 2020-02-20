@@ -36,13 +36,11 @@ include "header.php";
 							<a href="#" class="navbar-brand logo">f</a>
 						</div>
 						<nav class="collapse navbar-collapse" role="navigation">
-							<form class="navbar-form navbar-left">
+							<form class="navbar-form navbar-left" action='POST' enctype='multipart/form-data'>
 								<div class="input-group input-group-sm" style="min-width:360px;">
-									<input class="form-control" placeholder="Search" name="srch-term" id="srch-term"
-										type="text">
+									<input class="form-control" placeholder="Search" name="srch-term" id="srch-term"type="text">
 									<div class="input-group-btn">
-										<button class="btn btn-default" type="submit"><i
-												class="glyphicon glyphicon-search"></i></button>
+										<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search" ></i></button>
 									</div>
 								</div>
 							</form>
@@ -55,7 +53,7 @@ include "header.php";
 											class="glyphicon glyphicon-plus"></i> Post</a>
 								</li>
 								<li>
-									<a href="#"><span class="badge">badge</span></a>
+									<a href="#"><span class="badge">GitHub</span></a>
 								</li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
@@ -154,32 +152,35 @@ include "header.php";
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#10005;</button>
 					Update Status
 				</div>
 				<div class="modal-body">
-					
+				
 				<img class="col-sm-2" src="https://edu.ge.ch/site/cfpt/wp-content/uploads/sites/112/2016/02/logo-cfpt-site.png"/>
-					<form class="col-sm-10 form center-block">
+				<!-- Start of form : Update Status -->
+				<form class="col-sm-10 form center-block" method='POST' action='?action=addpost' enctype='multipart/form-data'>
 						<div class="form-group ">
-							<textarea class="form-control input-lg" autofocus=""
-								placeholder="What do you want to share?"></textarea>
+							<!-- User input : Comments -->
+							<textarea name="commentaire" class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
 						</div>
-					</form>
+					
 				</div>
 				<div class="modal-footer">
 					<div>
-						<button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
+						<input type="submit"   aria-hidden="true" value="Post"/>
 						<div class="pull-left list-inline">
+							<!-- User input : Images -->
 							<div class="img-upload">
 								<label for="file-input">
 									<img src="assets/img/upload_img.png"/>
 								<label>
-									<input id="file-input" type="file" name="media"/>
+									<input id="file-input" type="file" name="file[]" multiple/>
 							</div>
 						</div>
 					</div>
+				</form>
+				<!-- End of form : Update Status -->
 				</div>
 			</div>
 		</div>
