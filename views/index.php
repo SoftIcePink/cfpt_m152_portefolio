@@ -53,7 +53,7 @@ include "header.php";
 											class="glyphicon glyphicon-plus"></i> Post</a>
 								</li>
 								<li>
-									<a href="#"><span class="badge">GitHub</span></a>
+									<a href="https://github.com/SoftIcePink/cfpt_m152_portefolio"><span class="badge">GitHub</span></a>
 								</li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
@@ -107,6 +107,21 @@ include "header.php";
 											<div class="input-group text-center">
 											</div>
 										</form>
+
+									</div>
+									
+									<?php
+									include "showposts.php";
+									?>
+
+
+									<div class="well">
+										<form class="form">
+											<h4 style="text-align: center; font-size:25px;"></h4>
+											<div class="input-group text-center">
+											</div>
+										</form>
+										
 									</div>
 
 
@@ -177,7 +192,7 @@ include "header.php";
 								<label>
 									<input id="file-input" type="file" name="file[]" multiple/>
 							</div>
-							<input type="submit"  class="btn btn-primary" aria-hidden="true" value="Post" name='submit'/>
+							<input type="submit" class="btn btn-primary" aria-hidden="true" value="Post" name='submit'/>
 						</div>
 					</div>
 				</form>
