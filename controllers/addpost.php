@@ -16,29 +16,28 @@ $commentaire = "";
 $creationDatePost = "";
 $modificationDatePost = "";
 
-$idMedia = "";
-$typeMedia = "";
-$nomMedia = "";
-$creationDateMedia = "";
-$modificationDateMedia = "";
 
+$media[][] = array();
 
 $errors = array();
 
 // Verification of the user's data
 if (filter_has_var(INPUT_POST,'submit')) {
 
-    // FILES
-    
+    $commentaire = trim(filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_STRING));
+    $creationDatePost = date("Y-m-d h:i:sa");
+    $modificationDatePost = $creationDateMedia;
+
+    /* FILE SECTION */
     // Count the number of files
     $fileCounter = count($_FILES['file']['name']);
-    $filename = $_FILES['file']['name'][$fileCounter-1];
 
 
     // Looping through the files
     for($i = 0; $i < $fileCounter ; $i++){
 
         $filesize = $_FILES['file']['size'][$i];
+        $filename = $_FILES['file']['name'][$i];
         
         // Filter file type
         if(getMimeType(($_FILES['file']['name'][$i])){
@@ -54,8 +53,13 @@ if (filter_has_var(INPUT_POST,'submit')) {
         else{
             $error['file'] = "Mauvais type de fichier. Veuillez seulement utiliser des images.";
         }
-
+        
+        
+        addPost($filename; getMimeType($filename); date("Y-m-d h:i:sa"); date("Y-m-d h:i:sa"))
+        
     }
+
+    /* END OF FILE SECTION */
 
 }
 
@@ -86,4 +90,4 @@ function getMimeType($filename)
     return $mimetype;
 }
 
-//include './views/index.php';
+include './views/index.php';
