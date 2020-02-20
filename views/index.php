@@ -36,7 +36,7 @@ include "header.php";
 							<a href="#" class="navbar-brand logo">f</a>
 						</div>
 						<nav class="collapse navbar-collapse" role="navigation">
-							<form class="navbar-form navbar-left" action='POST' enctype='multipart/form-data'>
+							<form class="navbar-form navbar-left">
 								<div class="input-group input-group-sm" style="min-width:360px;">
 									<input class="form-control" placeholder="Search" name="srch-term" id="srch-term"type="text">
 									<div class="input-group-btn">
@@ -168,7 +168,7 @@ include "header.php";
 				</div>
 				<div class="modal-footer">
 					<div>
-						<input type="submit"   aria-hidden="true" value="Post"/>
+						
 						<div class="pull-left list-inline">
 							<!-- User input : Images -->
 							<div class="img-upload">
@@ -177,6 +177,7 @@ include "header.php";
 								<label>
 									<input id="file-input" type="file" name="file[]" multiple/>
 							</div>
+							<input type="submit"  class="btn btn-primary" aria-hidden="true" value="Post" name='submit'/>
 						</div>
 					</div>
 				</form>
