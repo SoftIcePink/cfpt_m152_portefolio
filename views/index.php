@@ -111,7 +111,7 @@ include "header.php";
 									</div>
 									
 									<?php
-									include "showposts.php";
+									//include "showposts.php";
 									?>
 
 
@@ -177,7 +177,7 @@ include "header.php";
 				<form class="col-sm-10 form center-block" method='POST' action='?action=addpost' enctype='multipart/form-data'>
 						<div class="form-group ">
 							<!-- User input : Comments -->
-							<textarea name="commentaire" class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
+							<textarea name="comment" class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
 						</div>
 					
 				</div>

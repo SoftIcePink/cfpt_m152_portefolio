@@ -17,16 +17,13 @@ $creationDatePost = "";
 $modificationDatePost = "";
 
 
-$media[][] = array();
-
 $errors = array();
 
 // Verification of the user's data
 if (filter_has_var(INPUT_POST,'submit')) {
 
-    $commentaire = trim(filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_STRING));
-    $creationDatePost = date("Y-m-d h:i:sa");
-    $modificationDatePost = $creationDateMedia;
+    $comment = trim(filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_STRING));
+
 
     /* FILE SECTION */
     // Count the number of files
@@ -40,10 +37,10 @@ if (filter_has_var(INPUT_POST,'submit')) {
         $filename = $_FILES['file']['name'][$i];
         
         // Filter file type
-        if(getMimeType(($_FILES['file']['name'][$i])){
+        if(getMimeType($_FILES['file']['name'][$i]) == true){
 
             // Filter size
-            if($filesize > 3000000 && $filesize < 70000000){
+            if($filesize > 300 && $filesize < 7000000000000){
                 // Upload file
                 move_uploaded_file($_FILES['file']['tmp_name'][$i], 'uploads/'.$_FILES['file']['tmp_name'][$i]);
             } else{
@@ -53,9 +50,7 @@ if (filter_has_var(INPUT_POST,'submit')) {
         else{
             $error['file'] = "Mauvais type de fichier. Veuillez seulement utiliser des images.";
         }
-        
-        
-        addPost($filename; getMimeType($filename); date("Y-m-d h:i:sa"); date("Y-m-d h:i:sa"))
+        addPost($comment, date("Y-m-d h:i:sa"));
         
     }
 
@@ -74,15 +69,15 @@ function getMimeType($filename)
     $mimetype = false;
     if(function_exists('finfo_open')) {
         // open with FileInfo
-        $mimetype = finfo_file($fileName);
+        $mimetype = finfo_file($filename);
 
     } elseif(function_exists('getimagesize')) {
         // open with GD
-        $mimetype = getMimeType($fileName)
+        $mimetype = getMimeType($filename);
 
     } elseif(function_exists('exif_imagetype')) {
        // open with EXIF
-       $mimetype = exif_imagetype($fileName);
+       $mimetype = exif_imagetype($filename);
 
     } elseif(function_exists('mime_content_type')) {
        $mimetype = mime_content_type($filename);

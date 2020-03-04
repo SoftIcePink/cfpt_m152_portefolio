@@ -9,58 +9,77 @@
 
 require_once 'models/dbconnexion.php';
 
-/**
- * gets all posts from the posts table as well as every media that were attached to each posts
- * @return array table contains all the records from the table
- */
-function getAllPosts(){
+
+
+
+// Create
+function addPost($comment, $date){
     $db = connectDB();
-    $sql = "SELECT posts.idPost, posts.commentaire, posts.creationDate, posts.modificationDate, medias.nomMedia, medias.idMedia, medias.typeMedia
-            FROM posts 
-            JOIN medias ON posts.idPost=medias.idPost;";
-    $request = $db->prepare($sql);
+    $query = "INSERT into posts (comment, creationDate, modificationDate)  
+    VALUES (:comment, :creationDate, :modificationDate)";
+
+    $request = $db->prepare($query);
+    $request -> bindParam("comment", $comment, PDO::PARAM_STR);
+    $request -> bindParam("creationDate", $date, PDO::PARAM_STR);
+    $request -> bindParam("modificationDate", $date, PDO::PARAM_STR);
+    $result = $request->execute();
+    
+    return connectDB()->lastInsertId();
+}
+
+
+function addMedia($mediaType, $mediaName, $mediaPath, $date, $idPost){
+    $db = connectDB();
+    $query = "INSERT INTO media (mediaType, mediaName, creationDate, modificationDate, mediaPath, idPost) 
+    VALUES (:mediaType, :mediaName, :creationDate, :modificationDate,:mediaPath, :idPost)";
+    
+    $request = $db->prepare($query);
+    $request -> bindParam("mediaType", $mediaType, PDO::PARAM_STR);
+    $request -> bindParam("mediaName", $mediaName, PDO::PARAM_STR);
+    $request -> bindParam("creationDate", $date, PDO::PARAM_STR);
+    $request -> bindParam("modificationDate", $date, PDO::PARAM_STR);
+    $request -> bindParam("mediaPath", $mediaPath, PDO::PARAM_STR);
+    $request -> bindParam("idPost", $idPost, PDO::PARAM_STR);
+    $result = $request->execute();
+    return $result;
+
+}
+// Read
+function getPosts(){
+    $db = connectDB();
+    $query = "SELECT * FROM posts
+    ORDER BY creationDate DESC";
+    $request = $db->prepare($query);
     $request->execute();
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
-/**
- * Adds a post which contains no images.
- */
-function addPost($commentaire, $creationDatePost, $modificationDatePost){
+function getMedias($idPost){
     $db = connectDB();
-    $sql = "INSERT INTO posts("
-}
-
-/**
- * Adds a post which contains one or multiple images.
- */
-function addPost($commentaire, $creationDatePost, $modificationDatePost, $media){
-    foreach($media as $m){
-
-    }
+    $query = "SELECT * FROM medias WHERE idPost=:idPost";
+    $request = $db->prepare($query);
+    $request -> bindParam("idPost", $idPost, PDO::PARAM_INT);
+    $request->execute();
+    return $request->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
-function addMedia($mediaType, $mediaName, $idPost){
+// Delete
+function deletePost($idPost){
     $db = connectDB();
-    $sql = "INSERT INTO medias(typeMedia,nomMedia, creationDate, modificationDate,  "
+    $query = "DELETE FROM medias WHERE idPOST=:idPost";
+
+    $request = $db->prepare($query);
+    $request -> bindParam("idPost", $idPost, PDO::PARAM_INT);
+    $result = $request->execute();
 }
 
-/**
- * Edits a post which contains no images.
- */
-function editPost($idPost, $commentaire, )
-
-/**
- * Edits a post which contains 1 or multiple images.
- */
-function editPost($idPost, $commentaire,){
-    
+function deleteMedias($idPost){
+    $db = connectDB();
+    $query = "DELETE FROM medias WHERE idPost=:idPost";
+    $request = $db->prepare($query);
+    $request -> bindParam("idPost", $idPost, PDO::PARAM_INT);
+    $result = $request->execute();
+    return $result;
 }
 
-/**
- * Deletes a post.
- */
-function deletePost(){
-
-}

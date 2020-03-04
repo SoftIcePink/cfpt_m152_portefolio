@@ -9,10 +9,10 @@
 //  Last update :   19.02.2019
 
 function connectDB(){
-	$dbServer = "127.0.0.1";
+	$dbServer = "localhost";
 	$dbName = "fb";
-	$dbUser = "m152";
-	$dbPwd = "1234";
+	$dbUser = "fbUser";
+	$dbPwd = "Super";
 	
 	static $bdd = null;
 	
