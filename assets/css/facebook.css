@@ -2,7 +2,7 @@
 html, body {
    height: 100%;
    font-family:verdana,arial,sans-serif;
-   color:#555555;
+   color:#adadad;
 }
 
 .nav {
@@ -94,7 +94,7 @@ hr {
 }
 
 #main {
-   background-color:#e9eaed;
+   background-color:#dbdbd7;
    padding-left:0;
    padding-right:0;
 }

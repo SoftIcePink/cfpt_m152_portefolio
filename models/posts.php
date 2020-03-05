@@ -9,9 +9,6 @@
 
 require_once 'models/dbconnexion.php';
 
-
-
-
 // Create
 function addPost($comment, $date){
     $db = connectDB();
@@ -19,18 +16,18 @@ function addPost($comment, $date){
     VALUES (:comment, :creationDate, :modificationDate)";
 
     $request = $db->prepare($query);
-    $request -> bindParam("comment", $comment, PDO::PARAM_STR);
-    $request -> bindParam("creationDate", $date, PDO::PARAM_STR);
-    $request -> bindParam("modificationDate", $date, PDO::PARAM_STR);
-    $result = $request->execute();
-    
+    $request->bindParam("comment", $comment, PDO::PARAM_STR);
+    $request->bindParam("creationDate", $date, PDO::PARAM_STR);
+    $request->bindParam("modificationDate", $date, PDO::PARAM_STR);
+    $request->execute();
+
     return connectDB()->lastInsertId();
 }
 
 
 function addMedia($mediaType, $mediaName, $mediaPath, $date, $idPost){
     $db = connectDB();
-    $query = "INSERT INTO media (mediaType, mediaName, creationDate, modificationDate, mediaPath, idPost) 
+    $query = "INSERT INTO medias (mediaType, mediaName, creationDate, modificationDate, mediaPath, idPost) 
     VALUES (:mediaType, :mediaName, :creationDate, :modificationDate,:mediaPath, :idPost)";
     
     $request = $db->prepare($query);
@@ -44,6 +41,8 @@ function addMedia($mediaType, $mediaName, $mediaPath, $date, $idPost){
     return $result;
 
 }
+
+
 // Read
 function getPosts(){
     $db = connectDB();
@@ -68,7 +67,6 @@ function getMedias($idPost){
 function deletePost($idPost){
     $db = connectDB();
     $query = "DELETE FROM medias WHERE idPOST=:idPost";
-
     $request = $db->prepare($query);
     $request -> bindParam("idPost", $idPost, PDO::PARAM_INT);
     $result = $request->execute();

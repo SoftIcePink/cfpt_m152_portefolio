@@ -9,12 +9,12 @@
 
 
 include "header.php";
+
 ?>
 
 
 
 <body>
-
 	<div class="wrapper">
 		<div class="box">
 			<div class="row row-offcanvas row-offcanvas">
@@ -102,16 +102,14 @@ include "header.php";
 								<div class="col-sm-7">
 
 									<div class="well">
-										<form class="form">
-											<h4 style="text-align: center; font-size:25px;">Welcome</h4>
+											<h4 style="text-align: center; font-size:25px;">Welcome ! These are the posts</h4>
 											<div class="input-group text-center">
-											</div>
-										</form>
-
+											Check out my github page for the source code !
+                                            </div>
 									</div>
 									
 									<?php
-									//include "showposts.php";
+									    include "showposts.php";
 									?>
 
 
@@ -172,7 +170,7 @@ include "header.php";
 				</div>
 				<div class="modal-body">
 				
-				<img class="col-sm-2" src="https://edu.ge.ch/site/cfpt/wp-content/uploads/sites/112/2016/02/logo-cfpt-site.png"/>
+				<img alt="logo_cfpt" class="col-sm-2" src="https://edu.ge.ch/site/cfpt/wp-content/uploads/sites/112/2016/02/logo-cfpt-site.png"/>
 				<!-- Start of form : Update Status -->
 				<form class="col-sm-10 form center-block" method='POST' action='?action=addpost' enctype='multipart/form-data'>
 						<div class="form-group ">
@@ -180,21 +178,21 @@ include "header.php";
 							<textarea name="comment" class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
 						</div>
 					
-				</div>
-				<div class="modal-footer">
-					<div>
-						
-						<div class="pull-left list-inline">
-							<!-- User input : Images -->
-							<div class="img-upload">
-								<label for="file-input">
-									<img src="assets/img/upload_img.png"/>
-								<label>
-									<input id="file-input" type="file" name="file[]" multiple/>
-							</div>
-							<input type="submit" class="btn btn-primary" aria-hidden="true" value="Post" name='submit'/>
-						</div>
-					</div>
+                        </div>
+                        <div class="modal-footer">
+                            <div>
+
+                                <div class="pull-left list-inline">
+                                    <!-- User input : Images -->
+                                    <div class="img-upload">
+                                        <label for="file-input">
+                                            <img src="assets/img/upload_img.png"/>
+                                        <label>
+                                            <input id="file-input" type="file" name="file[]" multiple/>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary" aria-hidden="true" value="Post" name='submit'/>
+                                </div>
+                            </div>
 				</form>
 				<!-- End of form : Update Status -->
 				</div>

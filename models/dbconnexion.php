@@ -11,8 +11,8 @@
 function connectDB(){
 	$dbServer = "localhost";
 	$dbName = "fb";
-	$dbUser = "fbUser";
-	$dbPwd = "Super";
+	$dbUser = "root";
+	$dbPwd = "";
 	
 	static $bdd = null;
 	

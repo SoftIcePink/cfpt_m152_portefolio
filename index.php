@@ -16,13 +16,17 @@ if (empty($action)) {
 try {
     switch ($action) {
         case 'index' :
-            require_once 'controllers/index.php';
+            require_once 'controllers/posts.php';
             break;
 
         case 'addpost':
             require_once 'controllers/addpost.php';
         break;
-        
+
+        case '':
+            require_once 'controllers/index.php';
+            break;
+
         default:
             require_once 'views/404.php';
         break;
