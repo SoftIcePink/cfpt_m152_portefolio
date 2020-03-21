@@ -23,6 +23,14 @@ try {
             require_once 'controllers/addpost.php';
         break;
 
+        case 'deletepost':
+            require_once 'controllers/deletepost.php';
+            break;
+
+        case 'updatepost':
+            require_once 'controllers/updatepost.php';
+            break;
+
         case '':
             require_once 'controllers/index.php';
             break;
